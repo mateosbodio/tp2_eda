@@ -1,43 +1,31 @@
 /*Ejercicio 7: Desarrollar un programa que determine si una matriz es simétrica o no. Una matriz es simétrica si es cuadrada y si es igual a su matriz transpuesta. */
-#include <iostream>
-#include <conio.h>
+#include <stdio.h>
 
-using namespace std;
-
-int main(){
-
-    int matriz[100][100],fico,cont=0;
-
-    cout<<"Ingrese le numero de filas y columnas: "; cin>>fico;
-
-
-    for(int i=0;i<fico;i++){
-        for(int j=0;j<fico;j++){
-            cout<<"Numero? ";
-            cin>>matriz[i][j];
+int main() {
+    int matriz[3][3];
+    int numero, simetria;
+    printf("Ingrese elementos de matriz:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            scanf("%d", &numero);
+            matriz[i][j] = numero;
         }
     }
 
-    for(int i=0;i<fico;i++){
-        for(int j=0;j<fico;j++){
-            cout<<matriz[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-
-    for(int i=0;i<fico;i++){
-        for(int j=0;j<fico;j++){
-            if(matriz[i][j]==matriz[j][i]){
-                    cont++;
-            }
+    //para comprobar si es simetrica
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] != matriz[j][i]) 
+                simetria = 0;
+            simetria = 1;
         }
     }
 
-    if(cont==fico*fico){
-        cout<<"Es correcto";
+    //imprimimos si es simetrica o no
+    if (simetria == 1) {
+        printf("La matriz es simetrica!\n");
+        return 0;
     }
-
-
-    getch();
+    printf("la matriz no es simetrica\n");
     return 0;
 }
